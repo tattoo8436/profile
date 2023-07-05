@@ -1,0 +1,86 @@
+.home {
+    background-color: #121120;
+
+    &__header {
+        display: flex;
+        justify-content: space-between;
+        padding: 20px 28px;
+
+        &__left {
+            &>* {
+                color: $white;
+                padding: 10px;
+            }
+        }
+
+        &__right {
+            display: flex;
+            align-items: center;
+
+            &__item {
+                color: $light-white;
+                opacity: 0.5;
+                font-size: 14px;
+                padding: 17px 20px;
+                border-radius: 8px;
+                cursor: pointer;
+            }
+
+            .active {
+                color: $white;
+                opacity: 1;
+                background-color: rgba(130, 130, 138, 0.20);
+                transition: 0.5s ease;
+            }
+        }
+    }
+
+    &__works {
+        &__name {
+            display: flex;
+            justify-content: center;
+            color: $white;
+            font-size: 40px;
+            font-weight: 700;
+        }
+
+        &__avatar {
+            display: flex;
+            justify-content: center;
+        }
+
+        &__job {
+            display: flex;
+            justify-content: center;
+            color: $white;
+            font-size: 96px;
+            font-weight: 900;
+            text-align: center;
+            background-image: url('../../../public/images/Ellipse\ 3.png'), url('../../../public/images/background_job.png');
+            background-repeat: no-repeat;
+            background-size: cover;
+            padding: 100px;
+        }
+
+        &__description {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            color: $white;
+        }
+
+        &__brand {
+            display: flex;
+            justify-content: center;
+            width: 300px;
+
+            &__item {
+                width: 132.194px;
+                height: 48.888px;
+                display: flex;
+                justify-content: center;
+                align-items: center;
+            }
+        }
+    }
+}
