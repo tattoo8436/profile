@@ -14,9 +14,18 @@ export default function HeaderCustom() {
   return (
     <div className="home__header">
       <div className="home__header__left">
-        <TwitterOutlined />
-        <DribbbleOutlined />
-        <LinkedinOutlined />
+        <TwitterOutlined
+          className="clickable"
+          style={{ fontSize: "24px", opacity: 0.5 }}
+        />
+        <DribbbleOutlined
+          className="clickable"
+          style={{ fontSize: "24px", opacity: 0.5 }}
+        />
+        <LinkedinOutlined
+          className="clickable"
+          style={{ fontSize: "24px", opacity: 0.5 }}
+        />
       </div>
 
       <div className="home__header__right">
@@ -24,7 +33,12 @@ export default function HeaderCustom() {
           className={classNames("home__header__right__item", {
             active: menu === "WORKS",
           })}
-          onClick={() => setMenu("WORKS")}
+          onClick={() => {
+            setMenu("WORKS");
+            document
+              .getElementById("works")
+              ?.scrollIntoView({ behavior: "smooth" });
+          }}
         >
           Works
         </div>
@@ -32,7 +46,12 @@ export default function HeaderCustom() {
           className={classNames("home__header__right__item", {
             active: menu === "EXPERIENCES",
           })}
-          onClick={() => setMenu("EXPERIENCES")}
+          onClick={() => {
+            setMenu("EXPERIENCES");
+            document
+              .getElementById("experiences")
+              ?.scrollIntoView({ behavior: "smooth" });
+          }}
         >
           Experiences
         </div>
