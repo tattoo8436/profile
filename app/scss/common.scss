@@ -2,6 +2,12 @@
   box-sizing: border-box;
 }
 
+@mixin mobile {
+  @media only screen and (max-width: 720px){
+      @content;
+  }
+}
+
 .clickable{
   cursor: pointer;
 }

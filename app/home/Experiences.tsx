@@ -5,10 +5,14 @@ import { listProcesses } from "../common/processes";
 import { Card, Carousel, Col, Row } from "antd";
 import Image from "next/image";
 import { listFeedbacks } from "../common/feedbacks";
+import { Swiper, SwiperSlide } from "swiper/react";
+import "swiper/css";
+import "swiper/css/pagination";
+import { Pagination } from "swiper/modules";
 
 export default function Experiences() {
   return (
-    <div className="home__experiences" id="experiences">
+    <div className="home__experiences section" id="experiences">
       <div className="home__experiences__header">
         <div className="home__experiences__header__title">12+ YEARS XP</div>
 
@@ -50,10 +54,21 @@ export default function Experiences() {
       </div>
 
       <div className="home__experiences__feedback">
-        <Carousel autoplay>
+        <Swiper
+          slidesPerView={"auto"}
+          centeredSlides={true}
+          spaceBetween={30}
+          pagination={{
+            clickable: true,
+          }}
+          modules={[Pagination]}
+        >
           {listFeedbacks?.map((i) => {
             return (
-              <Card key={i.id} className="home__experiences__feedback__item">
+              <SwiperSlide
+                key={i.id}
+                className="home__experiences__feedback__item"
+              >
                 <div className="feedback__avatar">
                   <Image src={i.avatar} alt="" />
                 </div>
@@ -68,10 +83,29 @@ export default function Experiences() {
                 </div>
 
                 <div className="feedback__content">{i.feedback}</div>
-              </Card>
+
+                <div className="feedback__btn">
+                  <div className="feedback__btn__wrapper">
+                    <div className="feedback__btn__wrapper__icon">
+                      <Image src={i.icon} alt="" />
+                    </div>
+
+                    <div className="feedback__btn__wrapper__text">Review</div>
+                  </div>
+                </div>
+
+                <div className="feedback__logo">
+                  <Image
+                    src={require("../../public/icons/works_brand1.svg")}
+                    alt=""
+                  />
+                </div>
+
+                <div className="cover"></div>
+              </SwiperSlide>
             );
           })}
-        </Carousel>
+        </Swiper>
       </div>
     </div>
   );

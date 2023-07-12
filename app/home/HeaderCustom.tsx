@@ -6,10 +6,49 @@ import {
   LinkedinOutlined,
 } from "@ant-design/icons";
 import classNames from "classnames";
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 
 export default function HeaderCustom() {
   const [menu, setMenu] = useState("WORKS");
+
+  useEffect(() => {
+    const handleScroll = () => {
+      const scrollY = window.scrollY || window.pageYOffset;
+      const sections: any = document.getElementsByClassName("section");
+      //console.log(sections);
+      for (let i = 0; i < sections.length; i++) {
+        const sectionTop = sections[i].offsetTop;
+        const sectionHeight = sections[i].offsetHeight;
+        const sectionId = sections[i].getAttribute("id");
+        //console.log(sectionId);
+        if (
+          scrollY + 100 >= sectionTop &&
+          scrollY < sectionTop + sectionHeight
+        ) {
+          switch (sectionId) {
+            case "works":
+              setMenu("WORKS");
+              break;
+            case "experiences":
+              setMenu("EXPERIENCES");
+              break;
+            case "services":
+              setMenu("SERVICES");
+              break;
+            case "contact":
+              setMenu("CONTACT");
+              break;
+            default:
+              break;
+          }
+        }
+      }
+    };
+    window.addEventListener("scroll", handleScroll);
+    return () => {
+      window.removeEventListener("scroll", handleScroll);
+    };
+  }, []);
 
   return (
     <div className="home__header">
@@ -59,7 +98,12 @@ export default function HeaderCustom() {
           className={classNames("home__header__right__item", {
             active: menu === "SERVICES",
           })}
-          onClick={() => setMenu("SERVICES")}
+          onClick={() => {
+            setMenu("SERVICES");
+            document
+              .getElementById("services")
+              ?.scrollIntoView({ behavior: "smooth" });
+          }}
         >
           Services
         </div>
@@ -67,7 +111,12 @@ export default function HeaderCustom() {
           className={classNames("home__header__right__item", {
             active: menu === "CONTACT",
           })}
-          onClick={() => setMenu("CONTACT")}
+          onClick={() => {
+            setMenu("CONTACT");
+            document
+              .getElementById("contact")
+              ?.scrollIntoView({ behavior: "smooth" });
+          }}
         >
           contact@kc.studio
         </div>

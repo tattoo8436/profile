@@ -1,16 +1,19 @@
 "use client";
 
-import { Avatar, Card, Col, Row } from "antd";
+import { Avatar, Button, Card, Col, Row } from "antd";
 import { UserOutlined } from "@ant-design/icons";
-import React from "react";
+import React, { useEffect } from "react";
 import AvatarImage from "../../public/images/avatar.png";
 import Image from "next/image";
 import { listBrands } from "../common/brands";
 import { listProducts } from "../common/products";
+import { useRecoilState } from "recoil";
+import { homeApi } from "../api/homeApi";
+import { listBrandsState } from "../common/recoilState";
 
 export default function Works() {
   return (
-    <div className="home__works" id="works">
+    <div className="home__works section" id="works">
       <div className="home__works__name">{`I'm Kevin`}</div>
 
       <div className="home__works__avatar">
@@ -38,8 +41,8 @@ export default function Works() {
         <Row className="home__works__brand__content">
           {listBrands?.map((i) => {
             return (
-              <Col key={i.id} className="home__works__brand__item">
-                <Image src={i.url} alt="" />
+              <Col key={i?.id} className="home__works__brand__item">
+                <Image src={i?.url} alt="" />
               </Col>
             );
           })}
