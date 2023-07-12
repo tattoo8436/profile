@@ -31,11 +31,11 @@ export default function Services() {
 
       <div className="home__services__text">
         <div className="home__services__text__title">
-          Product, Website or Brand Design, I've got you covered!
+          {`Product, Website or Brand Design, I've got you covered!`}
         </div>
 
         <div className="home__services__text__content">
-          Let's elevate your vision and achieve your design goals together!
+         {`Let's elevate your vision and achieve your design goals together!`}
         </div>
       </div>
 

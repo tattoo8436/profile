@@ -37,9 +37,9 @@ export default function Contact() {
               </div>
 
               <div className="left__content__content">
-                Whether you're a design team in need of support or an
+                {`Whether you're a design team in need of support or an
                 early-stage company looking to level up your design, I'd love to
-                talk about your project 💜
+                talk about your project 💜`}
               </div>
             </div>
           </Col>
